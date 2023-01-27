@@ -17,7 +17,7 @@ Dark green: #28b485
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 16.5px;
   line-height: 1.7;
   color: #777;
   padding: 30px;
@@ -52,6 +52,8 @@ body {
   color: #fff;
   /* margin: 0px auto; */
   text-transform: uppercase;
+  /* Fixing animation tiny upscale effect */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -59,16 +61,55 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+  animation-name: moveInLeft; 
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* animation-iteration-count: 3; */
+  
 }
 .heading-primary-sub {
   display: block;
   font-size: 20px;
   font-size: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 14px;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 .text-box {
   position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+@keyframes moveInLeft {
+  0%{
+    opacity: 0;
+    transform: translateX(-100px); 
+  }
+  80%{
+    transform: translateX(15px);
+
+  }
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+  
+}
+
+@keyframes moveInRight {
+  0%{
+    opacity: 0;
+    transform: translateX(100px); 
+  }
+  80%{
+    transform: translateX(-15px);
+
+  }
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+  
 }
